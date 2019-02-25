@@ -144,6 +144,68 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-django微信开发记录-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/25/django微信开发记录-1/">django微信开发记录--1</a>
+    </h1>
+  
+
+        
+        <a href="/2019/02/25/django微信开发记录-1/" class="archive-article-date">
+  	<time datetime="2019-02-25T13:42:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/02/25/django微信开发记录-1/">页面浏览 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-分段式视频解决办法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -165,13 +227,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="某些APP视频是分段的下载办法"><a href="#某些APP视频是分段的下载办法" class="headerlink" title="某些APP视频是分段的下载办法"></a>某些APP视频是分段的下载办法</h1><p>某些看片的APP中，由于视频体积过于庞大，所以对视频进行了分段，减少了加载时间。<br>如果不分段直接加载的话，将要先将视频全部下载完才能进行播放。</p>
-<h1 id="那么，这类的东西怎么下载呢？"><a href="#那么，这类的东西怎么下载呢？" class="headerlink" title="那么，这类的东西怎么下载呢？"></a>那么，这类的东西怎么下载呢？</h1><h2 id="这里以百度网盘里的视频为例子（虽然它自己带了下载）"><a href="#这里以百度网盘里的视频为例子（虽然它自己带了下载）" class="headerlink" title="这里以百度网盘里的视频为例子（虽然它自己带了下载）"></a>这里以百度网盘里的视频为例子（虽然它自己带了下载）</h2><p>先进入APP不要播放视频<br><img src="https://jklelin.github.io/img/Download_way_2/video_ui.png" alt="视频界面"><br>打开抓包软件对APP进行抓包然后再播放视频，播放一会就可以了<br>停止抓包，在抓取的文件中找到下载内容有M3U的文件<br><img src="https://jklelin.github.io/img/Download_way_2/search_the_m3u8_doc.jpg" alt="m3u"><br>然后可以使用host+get从服务器下载m3u8文件或者用抓包工具带的保存功能存储m3u8文件。<br><img src="https://jklelin.github.io/img/Download_way_2/M3U.png" alt="m3u8文件"><br>可以看到m3u8文件中每个#EXTINF后面都带有一串地址</p>
-<blockquote>
-<p>#EXTINF:10,<a href="http://………………" target="_blank" rel="noopener">http://………………</a><br>这个10是这段视频的时长，这里可以看出这里的视频是以10s为一段的。<br>只要把后面的<br><a href="http://………………" target="_blank" rel="noopener">http://………………</a><br>复制到浏览器或者迅雷下载下来就可以了。</p>
-</blockquote>
-<p>但是对于2个小时的电影，10s一段也就是说要下载720个文件，这是很蛋疼的。<br>而且下载完后需要对文件按顺序重命名在调用windows的ts文件合并命令（详细操作可以百度“合并ts文件”）<br>所以最好就是有一个m3u文件下载器，但是现在并没有比较好用的。</p>
-<p>还是安心地等缓冲吧。。。</p>
-
+<h1 id="那么，这类的东西怎么下载呢？"><a href="#那么，这类的东西怎么下载呢？" class="headerlink" title="那么，这类的东西怎么下载呢？"></a>那么，这类的东西怎么下载呢？</h1>
+        
+          <a class="article-more-a" href="/2018/01/09/分段式视频解决办法/#more">more >></a>
+        
       
 
       
@@ -245,18 +304,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="某些APP中有的视频没有下载地址，那么怎么下载该视频呢？"><a href="#某些APP中有的视频没有下载地址，那么怎么下载该视频呢？" class="headerlink" title="某些APP中有的视频没有下载地址，那么怎么下载该视频呢？"></a>某些APP中有的视频没有下载地址，那么怎么下载该视频呢？</h1><p>首先我们要准备一个APP的抓包工具</p>
-<p> 这里我是用的是Packet Capture<br><img src="https://jklelin.github.io/img/Download_way_1/pagcat.jpg" alt="Packet Capture"></p>
-<p>先打开要下载的视频界面，但是不点进去播放。<br>这里用微博的小短片为例子<br><img src="https://jklelin.github.io/img/Download_way_1/1.png" alt="打开界面"></p>
-<p>然后使用抓包工具对这个APP进行抓包<br>抓包开始后点进视频开始播放<br><img src="https://jklelin.github.io/img/Download_way_1/2.png" alt="开始播放"></p>
-<p>视频开始播放后可以不管了<br>这个时候打开抓包工具<br><img src="https://jklelin.github.io/img/Download_way_1/3.png" alt="抓包工具抓取的包"><br>可以看到，抓到的东西有各种文件，SSL的不用管他，直接打开一个1MB左右的文件。<br><img src="https://jklelin.github.io/img/Download_way_1/4.png" alt="打开"><br>上面蓝色部分就是APP向服务器发送的请求，下面是从请求返回的内容。</p>
-<p>只看蓝色部分，把HOST和GET后面的内容（画起来的）给复制下来，组合在一起<br>如下</p>
-<blockquote>
-<p>f.us.sinaimg.cn/001w1KnLlx07h8VHo8ti01040200baj10k01.mp4?label=mp4_hd&amp;template=28&amp;Expires=1515162444&amp;ssig=Q8%2BiIoUi%2Fe&amp;KID=unistore,video</p>
-</blockquote>
-<p>复制到迅雷或者浏览器就可以下载了。<br><img src="https://jklelin.github.io/img/Download_way_1/LLQdownload.png" alt="浏览器"><br><img src="https://jklelin.github.io/img/Download_way_1/TDdownload.png" alt="迅雷"></p>
-<p>BUT！有些蛋疼的APP的视频因为过于庞大用的是分段下载。<br>所以不能用上面的方法直接下载。<br>那怎么办呢？？？？？？？？？？</p>
-<p>下一篇来解决这个问题</p>
-
+<p> 这里我是用的是Packet Capture<br><img src="https://jklelin.github.io/img/Download_way_1/pagcat.jpg" alt="Packet Capture"><br>
+        
+          <a class="article-more-a" href="/2018/01/05/下载某些APP中无法下载的视频/#more">more >></a>
+        
       
 
       
@@ -472,15 +523,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日常</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">大学学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">日常</a>
               </li>
             
             <div class="clearfix"></div>
