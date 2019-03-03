@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>django微信开发记录--1 | JkleLin‘s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#接入微信 微信官方文档：https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;amp;id=mp1445241432先进去按步骤进行">
+  <meta name="description" content="接入微信微信官方文档：https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;amp;id=mp1445241432先进去按步骤进行">
 <meta name="keywords" content="技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="django微信开发记录--1">
 <meta property="og:url" content="http://yoursite.com/2019/02/25/django微信开发记录-1/index.html">
 <meta property="og:site_name" content="JkleLin‘s blog">
-<meta property="og:description" content="#接入微信 微信官方文档：https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;amp;id=mp1445241432先进去按步骤进行">
+<meta property="og:description" content="接入微信微信官方文档：https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;amp;id=mp1445241432先进去按步骤进行">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-26T08:27:48.672Z">
+<meta property="og:updated_time" content="2019-03-03T08:24:33.066Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="django微信开发记录--1">
-<meta name="twitter:description" content="#接入微信 微信官方文档：https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;amp;id=mp1445241432先进去按步骤进行">
+<meta name="twitter:description" content="接入微信微信官方文档：https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;amp;id=mp1445241432先进去按步骤进行">
   
     <link rel="alternative" href="/atom.xml" title="JkleLin‘s blog" type="application/atom+xml">
   
@@ -167,8 +167,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#接入微信</p>
-<p>微信官方文档：<a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1445241432" target="_blank" rel="noopener">https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1445241432</a><br>先进去按步骤进行<br><a id="more"></a><br>其中第二步：验证消息的确来自微信服务器<br>django中实现代码</p>
+        <h1 id="接入微信"><a href="#接入微信" class="headerlink" title="接入微信"></a>接入微信</h1><p>微信官方文档：<a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1445241432" target="_blank" rel="noopener">https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1445241432</a><br>先进去按步骤进行<br><a id="more"></a><br>其中第二步：验证消息的确来自微信服务器<br>django中实现代码</p>
 <pre><code>def get(request):
         signature = request.GET.get(&apos;signature&apos;)
         timestamp = request.GET.get(&apos;timestamp&apos;)
