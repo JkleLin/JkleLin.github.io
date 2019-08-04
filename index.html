@@ -144,6 +144,84 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-django项目教程-02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/05/django项目教程-02/">django项目教程-02</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/05/django项目教程-02/" class="archive-article-date">
+  	<time datetime="2019-08-04T16:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="接下来是为留言板写模型，视图和模板"><a href="#接下来是为留言板写模型，视图和模板" class="headerlink" title="接下来是为留言板写模型，视图和模板"></a>接下来是为留言板写模型，视图和模板</h2><p>留言板功能实现和前面的 account 类似，先添加模型，然后写模板，添加视图，连接url就可以了。这里说一下分页功能的实现方法。<br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">培训</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/05/django项目教程-02/">浏览全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-django项目教程-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -193,6 +271,7 @@
 <h2 id="为account写用户模型"><a href="#为account写用户模型" class="headerlink" title="为account写用户模型"></a>为account写用户模型</h2><p>作为用户有2个属性，1是用户名，2是密码，其他可以按需添加。然后为它写几个方法。这里我添加了注册函数和验证密码是否正确的函数,添加完模型后要进入<code>manage.py</code>为添加的模型建立数据库。<br>这里同时给密码进行了加密处理，让存储在数据库的密码不为明文。</p>
 <blockquote>
 <p>account/models.py<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">from django.db import models</span><br><span class="line">from django.contrib.auth.hashers import make_password, check_password</span><br><span class="line"></span><br><span class="line"># Create your models here.</span><br><span class="line">class Users(models.Model):</span><br><span class="line">    nickName = models.CharField(&apos;用户名&apos;, max_length = 30, primary_key = True)</span><br><span class="line">    password = models.CharField(&apos;密码&apos;, max_length = 30)</span><br><span class="line"></span><br><span class="line">    class Meta:</span><br><span class="line">        db_table = &apos;Users&apos;</span><br><span class="line"></span><br><span class="line">    # 注册函数</span><br><span class="line">    # 需要参数为：用户名， 密码</span><br><span class="line">    # 当用户已存在返回 False</span><br><span class="line">    # 注册成功返回 True</span><br><span class="line">    @staticmethod</span><br><span class="line">    def register(nName, psw):</span><br><span class="line">        isRe = Users.objects.filter(nickName = nName)</span><br><span class="line">        if not (isRe is None):</span><br><span class="line">            Users.objects.create(</span><br><span class="line">                nickName = nName,</span><br><span class="line">                password = make_password(psw)</span><br><span class="line">            )</span><br><span class="line">            return True</span><br><span class="line">        return False</span><br><span class="line"></span><br><span class="line">    # 验证密码函数</span><br><span class="line">    # 需要参数：用户名， 密码</span><br><span class="line">    # 密码正确：True，否则为：False</span><br><span class="line">    @staticmethod</span><br><span class="line">    def checkPsw(nName, psw):</span><br><span class="line">        hs_pw = Users.objects.filter(nickName = nName)[0].password</span><br><span class="line">        return check_password(psw, hs_pw)</span><br></pre></td></tr></table></figure></p>
+<p>django对数据库进行操作很简单。如这里的Users类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 增加成员</span><br><span class="line">Users.objects.create(</span><br><span class="line">                nickName = nName,</span><br><span class="line">                password = make_password(psw)</span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line"># 寻找名字为 nName 的成员</span><br><span class="line">Users.objects.filter(nickName = nName)</span><br><span class="line"></span><br><span class="line"># 获取所有成员</span><br><span class="line">Users.objects.all()</span><br><span class="line"></span><br><span class="line"># 获取昵称中有A的成员</span><br><span class="line">Users.objects.get(nickName = &quot;A&quot;)</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p>添加完模型后，在项目根目录进入命令窗口（terminal/cmd/powershell），输入 <code>python manage.py makemigration</code> 记录下我们对 models 的改动，然后输入<code>python manage.py migrate</code> 将改动写入到数据库。</p>
 <h2 id="为account添加视图和模板，写入urls测试"><a href="#为account添加视图和模板，写入urls测试" class="headerlink" title="为account添加视图和模板，写入urls测试"></a>为account添加视图和模板，写入urls测试</h2><p>在account下的view添加注册的视图，当用户进入到该视图时先检查它是否进行了注册，然后获取注册信息，调用注册函数，并保存cookies然后返回结果。登录视图也相同，先检查是否进行了登入，调用验证密码的函数，返回结果。并写好对应的templates，在urls里加入就可以进行测试了。<br>首先为account添加注册,登入和登出的界面,</p>
@@ -848,81 +927,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/02/25/django微信开发记录-1/">浏览全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-分段式视频解决办法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/09/分段式视频解决办法/">分段式视频解决办法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/09/分段式视频解决办法/" class="archive-article-date">
-  	<time datetime="2018-01-09T00:59:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="某些APP视频是分段的下载办法"><a href="#某些APP视频是分段的下载办法" class="headerlink" title="某些APP视频是分段的下载办法"></a>某些APP视频是分段的下载办法</h1><p>某些看片的APP中，由于视频体积过于庞大，所以对视频进行了分段，减少了加载时间。<br>如果不分段直接加载的话，将要先将视频全部下载完才能进行播放。</p>
-<h1 id="那么，这类的东西怎么下载呢？"><a href="#那么，这类的东西怎么下载呢？" class="headerlink" title="那么，这类的东西怎么下载呢？"></a>那么，这类的东西怎么下载呢？</h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/09/分段式视频解决办法/">浏览全文 >></a>
         </p>
       
 
