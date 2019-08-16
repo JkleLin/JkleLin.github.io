@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/8 | JkleLin‘s blog</title>
+  <title>Android开发记录-AndroidStudio模拟器相关 | JkleLin‘s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="JkleLin‘s blog">
-<meta property="og:url" content="http://yoursite.com/archives/2019/08/index.html">
+  <meta name="description" content="问题的出现突然想做一个Android的app，于是开始学 Android studio （以下简称AS）的使用，来做一个app。按照教程搭建好环境，写好第一个项目后，发现run它自带的Android模拟器总是运行不了。其中Android ARM Nougat会显示Emulator: Warning: restoring GLES1 context from snapshot. App may ne">
+<meta name="keywords" content="技术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android开发记录-AndroidStudio模拟器相关">
+<meta property="og:url" content="http://yoursite.com/2019/08/16/Android开发记录-AndroidStudio模拟器相关/index.html">
 <meta property="og:site_name" content="JkleLin‘s blog">
+<meta property="og:description" content="问题的出现突然想做一个Android的app，于是开始学 Android studio （以下简称AS）的使用，来做一个app。按照教程搭建好环境，写好第一个项目后，发现run它自带的Android模拟器总是运行不了。其中Android ARM Nougat会显示Emulator: Warning: restoring GLES1 context from snapshot. App may ne">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-16T10:37:26.046Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JkleLin‘s blog">
+<meta name="twitter:title" content="Android开发记录-AndroidStudio模拟器相关">
+<meta name="twitter:description" content="问题的出现突然想做一个Android的app，于是开始学 Android studio （以下简称AS）的使用，来做一个app。按照教程搭建好环境，写好第一个项目后，发现run它自带的Android模拟器总是运行不了。其中Android ARM Nougat会显示Emulator: Warning: restoring GLES1 context from snapshot. App may ne">
   
     <link rel="alternative" href="/atom.xml" title="JkleLin‘s blog" type="application/atom+xml">
   
@@ -142,36 +147,40 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Android开发记录-AndroidStudio模拟器相关" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Android开发记录-AndroidStudio模拟器相关
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/16/Android开发记录-AndroidStudio模拟器相关/" class="archive-article-date">
+
+        
+        <a href="/2019/08/16/Android开发记录-AndroidStudio模拟器相关/" class="archive-article-date">
   	<time datetime="2019-08-16T10:21:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/16/Android开发记录-AndroidStudio模拟器相关/">Android开发记录-AndroidStudio模拟器相关</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="问题的出现"><a href="#问题的出现" class="headerlink" title="问题的出现"></a>问题的出现</h2><p>突然想做一个Android的app，于是开始学 Android studio （以下简称AS）的使用，来做一个app。<br>按照教程搭建好环境，写好第一个项目后，发现run它自带的Android模拟器总是运行不了。其中<code>Android ARM Nougat</code>会显示<code>Emulator: Warning: restoring GLES1 context from snapshot. App may need reloading.</code>错误。另一个<code>Android Accelerated Nougat</code>执行不了，因为没有开启VT-x。<br>我的笔记本是小米pro，cpu为i5 8th，不支持VT。<br>所以不能用任何靠VT支持的模拟器。而AS自带的<code>Android ARM Nougat</code>，运行失败是因为分配的内存不够，而要给它分配内存又需要开启VT。<br>那没办法，我只好去寻找不需要VT的外部模拟器。</p>
+<h2 id="蓝叠模拟器"><a href="#蓝叠模拟器" class="headerlink" title="蓝叠模拟器"></a>蓝叠模拟器</h2><p>在经历1个小时的寻找，发现<code>蓝叠模拟器</code>是比较流畅的不需要 VT 的模拟器。<br>BUT 问题又出现了，蓝叠模拟器运行时需要彻底关闭<code>hyper-V</code>，而我的电脑由于之前开发项目时用到了hyper虚拟机。之后在设置里关闭了，但是并不彻底，模拟器一直提示要我关闭。<br>最终关闭方案：</p>
+<blockquote>
+<p>链接：<a href="https://blog.csdn.net/hotcoffie/article/details/85043894" target="_blank" rel="noopener">https://blog.csdn.net/hotcoffie/article/details/85043894</a></p>
+</blockquote>
+<h2 id="启用ADB"><a href="#启用ADB" class="headerlink" title="启用ADB"></a>启用ADB</h2><p>为了连接 AS 与 模拟器，需要启用ADB。ADB在<code>C:\Program Files (x86)\Android\android-sdk\platform-tools</code>目录下。把这个目录添加到系统变量path中就可以使用ADB命令了。<br>添加完后，重启AS，启动模拟器。在AS的<code>Terminal</code>中输入<code>adb connect localhost:5555</code>，这条命令可以让AS与蓝叠模拟器进行连接。然后run的时候选中蓝叠模拟器就可以运行了。</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -183,145 +192,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/16/Android开发记录-AndroidStudio模拟器相关/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/09/Nginx-Uwsgi-django-部署WEB应用/" class="archive-article-date">
-  	<time datetime="2019-08-09T03:37:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/09/Nginx-Uwsgi-django-部署WEB应用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Nginx+Uwsgi+django 部署WEB应用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/09/Nginx-Uwsgi-django-部署WEB应用/">Nginx+Uwsgi+django 部署WEB应用</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">培训</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/05/django项目教程-02/" class="archive-article-date">
-  	<time datetime="2019-08-04T16:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/05/django项目教程-02/">django项目教程-02</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">培训</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/django项目教程-01/" class="archive-article-date">
-  	<time datetime="2019-08-04T15:13:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/04/django项目教程-01/">django项目教程-01</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">培训</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -344,8 +314,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
