@@ -16,10 +16,12 @@
 <meta property="og:site_name" content="JkleLin‘s blog">
 <meta property="og:description" content="问题的出现突然想做一个Android的app，于是开始学 Android studio （以下简称AS）的使用，来做一个app。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-16T10:37:59.129Z">
+<meta property="og:image" content="http://yoursite.com/img/bluestack/openADB.png">
+<meta property="og:updated_time" content="2019-08-16T10:43:45.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android开发记录-AndroidStudio模拟器相关">
 <meta name="twitter:description" content="问题的出现突然想做一个Android的app，于是开始学 Android studio （以下简称AS）的使用，来做一个app。">
+<meta name="twitter:image" content="http://yoursite.com/img/bluestack/openADB.png">
   
     <link rel="alternative" href="/atom.xml" title="JkleLin‘s blog" type="application/atom+xml">
   
@@ -173,6 +175,7 @@
 <p>链接：<a href="https://blog.csdn.net/hotcoffie/article/details/85043894" target="_blank" rel="noopener">https://blog.csdn.net/hotcoffie/article/details/85043894</a></p>
 </blockquote>
 <h2 id="启用ADB"><a href="#启用ADB" class="headerlink" title="启用ADB"></a>启用ADB</h2><p>为了连接 AS 与 模拟器，需要启用ADB。ADB在<code>C:\Program Files (x86)\Android\android-sdk\platform-tools</code>目录下。把这个目录添加到系统变量path中就可以使用ADB命令了。<br>添加完后，重启AS，启动模拟器。在AS的<code>Terminal</code>中输入<code>adb connect localhost:5555</code>，这条命令可以让AS与蓝叠模拟器进行连接。然后run的时候选中蓝叠模拟器就可以运行了。</p>
+<h2 id="蓝叠允许ADB调试"><a href="#蓝叠允许ADB调试" class="headerlink" title="蓝叠允许ADB调试"></a>蓝叠允许ADB调试</h2><p>但是，在项目run的时候又提示<code>Installation failed with message closed</code>，说明APP在模拟器上安装失败，这是因为蓝叠模拟器默认关闭了ADB调试，进入蓝叠的设置，按照图片中进行操作就可以开启了。<br><img src="/img/bluestack/openADB.png" alt="开启ADB"></p>
 
       
 
