@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JkleLin&#39;s blog | JkleLin‘s blog</title>
+  <title>flask入门 | JkleLin‘s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="搞定啦！终于用HEXO搭好自己的博客啦！欢迎大家~">
-<meta name="keywords" content="日常">
+  <meta name="description" content="安装py3、pip略 新建env在里面安装flask（py3.3以上的版本可以直接使用venv、之前的版本可以用virtualenv替代虚拟环境）">
+<meta name="keywords" content="教程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JkleLin&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/2017/12/25/article-title/index.html">
+<meta property="og:title" content="flask入门">
+<meta property="og:url" content="http://yoursite.com/2019/11/03/flask入门/index.html">
 <meta property="og:site_name" content="JkleLin‘s blog">
-<meta property="og:description" content="搞定啦！终于用HEXO搭好自己的博客啦！欢迎大家~">
+<meta property="og:description" content="安装py3、pip略 新建env在里面安装flask（py3.3以上的版本可以直接使用venv、之前的版本可以用virtualenv替代虚拟环境）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-09T01:53:16.619Z">
+<meta property="og:updated_time" content="2019-11-03T02:04:18.583Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JkleLin&#39;s blog">
-<meta name="twitter:description" content="搞定啦！终于用HEXO搭好自己的博客啦！欢迎大家~">
+<meta name="twitter:title" content="flask入门">
+<meta name="twitter:description" content="安装py3、pip略 新建env在里面安装flask（py3.3以上的版本可以直接使用venv、之前的版本可以用virtualenv替代虚拟环境）">
   
     <link rel="alternative" href="/atom.xml" title="JkleLin‘s blog" type="application/atom+xml">
   
@@ -147,27 +147,53 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-article-title" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-flask入门" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JkleLin&#39;s blog
+      flask入门
     </h1>
   
 
         
-        <a href="/2017/12/25/article-title/" class="archive-article-date">
-  	<time datetime="2017-12-25T07:21:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-25</time>
+        <a href="/2019/11/03/flask入门/" class="archive-article-date">
+  	<time datetime="2019-11-03T02:03:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>搞定啦！终于用HEXO搭好自己的博客啦！欢迎大家~</p>
+        <h1 id="安装py3、pip"><a href="#安装py3、pip" class="headerlink" title="安装py3、pip"></a>安装py3、pip</h1><p>略</p>
+<h1 id="新建env在里面安装flask"><a href="#新建env在里面安装flask" class="headerlink" title="新建env在里面安装flask"></a>新建env在里面安装flask</h1><p>（py3.3以上的版本可以直接使用venv、之前的版本可以用virtualenv替代虚拟环境）<br><a id="more"></a><br>新建虚拟环境：<br>  python -m venv flaskenv</p>
+<p>进入虚拟环境:</p>
+<ol>
+<li><p>使用管理员运行powershell:<br><code>set-executionpolicy remotesigned</code></p>
+<p>运行activate<br><code>.\flaskenv\Scripts\activate.ps1</code></p>
+</li>
+<li><p>使用cmd：<br>cd至虚拟环境目录<br><code>flaskenv\Scripts\activate.bat</code></p>
+</li>
+</ol>
+<p>安装flask：<br>   <code>pip install flask</code></p>
+<h1 id="第一个flask程序："><a href="#第一个flask程序：" class="headerlink" title="第一个flask程序："></a>第一个flask程序：</h1><p>新建文件flask.py<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route(&apos;/&apos;)</span><br><span class="line">def helloWold():</span><br><span class="line">    return &apos;Hello, World!&apos;</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure></p>
+<h1 id="使用配置文件："><a href="#使用配置文件：" class="headerlink" title="使用配置文件："></a>使用配置文件：</h1><p>新建config.py<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DEBUG = True</span><br><span class="line">SECRET_KEY = &apos;SECRETKEY996&apos;</span><br></pre></td></tr></table></figure></p>
+<p>在run.py设置配置文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.config.from_pyfile(&apos;config.py&apos;)</span><br></pre></td></tr></table></figure></p>
+<h1 id="使用模板："><a href="#使用模板：" class="headerlink" title="使用模板："></a>使用模板：</h1><p>新建文件夹 templates<br>在里面新建一个html页面 index.html</p>
+<p>修改run.py代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@app.route(&apos;/&apos;)</span><br><span class="line">def index():</span><br><span class="line">    return render_template(&quot;index.html&quot;)</span><br></pre></td></tr></table></figure></p>
+<p>自定义title：<br>修改模板title<code>&lt;title&gt; flask入门 &lt;/title&gt;</code><br>修改run.py:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@app.route(&apos;/&apos;)</span><br><span class="line">def index():</span><br><span class="line">	title = &apos;主页&apos;</span><br><span class="line">    return render_template(&quot;index.html&quot;, title = title)</span><br></pre></td></tr></table></figure></p>
+<p>模板拓展：<br>添加base.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;title&gt;&#123;&#123; title &#125;&#125;&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;a href=&quot;/&quot;&gt;主页&lt;/a&gt;</span><br><span class="line">	&#123;% block content %&#125;&#123;% endblock %&#125;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>修改主页index.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends &quot;base.html&quot; %&#125;</span><br><span class="line">&#123;% block content %&#125;</span><br><span class="line">&lt;h2&gt;主页&lt;/h2&gt;</span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>增加注册页面和登陆页面：<br>register.html:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends &quot;base.html&quot; %&#125;</span><br><span class="line">&#123;% block content %&#125;</span><br><span class="line">&lt;h2&gt;注册&lt;/h2&gt;</span><br><span class="line">&lt;form method=&quot;POST&quot;&gt;</span><br><span class="line">	用户名:&lt;input type=&quot;text&quot; name=&quot;USERNAME&quot;&gt;&lt;br&gt;</span><br><span class="line">	密码：&lt;input type=&quot;password&quot; name=&quot;PASSWORD&quot;&gt;&lt;br&gt;</span><br><span class="line">	确认密码:&lt;input type=&quot;password&quot; name=&quot;CONFIRM&quot;&gt;&lt;br&gt;</span><br><span class="line">	&lt;input type=&quot;submit&quot; value=&quot;注册&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>login.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends &quot;base.html&quot; %&#125;</span><br><span class="line">&#123;% block content %&#125;</span><br><span class="line">&lt;h2&gt;登陆&lt;/h2&gt;</span><br><span class="line">&lt;form method=&quot;GET&quot;&gt;</span><br><span class="line">	用户名:&lt;input type=&quot;text&quot; name=&quot;USERNAME&quot;&gt;&lt;br&gt;</span><br><span class="line">	密码：&lt;input type=&quot;password&quot; name=&quot;PASSWORD&quot;&gt;&lt;br&gt;</span><br><span class="line">	&lt;input type=&quot;submit&quot; value=&quot;登陆&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>为两个页面添加路由：<br>run.py<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@app.route(&apos;/register&apos;)</span><br><span class="line">def register():</span><br><span class="line">    title = &apos;注册页面&apos;</span><br><span class="line">    return render_template(&quot;register.html&quot;, title = title)</span><br><span class="line"></span><br><span class="line">@app.route(&apos;/login&apos;)</span><br><span class="line">def login():</span><br><span class="line">    title = &apos;登陆页面&apos;</span><br><span class="line">    return render_template(&quot;login.html&quot;, title = title)</span><br></pre></td></tr></table></figure></p>
+<p>方便起见 修改 base.html 作为转跳<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;a href=&quot;/&quot;&gt;主页&lt;/a&gt;</span><br><span class="line">	&lt;a href=&quot;/register&quot;&gt;注册&lt;/a&gt;</span><br><span class="line">	&lt;a href=&quot;/login&quot;&gt;登陆&lt;/a&gt;</span><br><span class="line">	&#123;% block content %&#125;&#123;% endblock %&#125;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="post方法"><a href="#post方法" class="headerlink" title="post方法"></a>post方法</h1><p>为注册页面添加post处理方法:<br>添加信息页面：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends &quot;base.html&quot; %&#125;</span><br><span class="line">&#123;% block content %&#125;</span><br><span class="line">&lt;h2&gt;&#123;&#123; message &#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;a href=&quot;/&quot;&gt;返回主页&lt;/a&gt;</span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>设置注册逻辑：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@app.route(&apos;/register&apos;, methods = [&apos;GET&apos;, &apos;POST&apos;])</span><br><span class="line">def register():</span><br><span class="line">    title = &apos;注册页面&apos;</span><br><span class="line">    if request.method == &apos;GET&apos;:</span><br><span class="line">        return render_template(&quot;register.html&quot;, title = title)</span><br><span class="line">    else:</span><br><span class="line">        username = request.form[&quot;USERNAME&quot;]</span><br><span class="line">        password = request.form[&quot;PASSWORD&quot;]</span><br><span class="line">        confirm = request.form[&quot;CONFIRM&quot;]</span><br><span class="line">        if password == confirm:</span><br><span class="line">            message = &apos;注册成功&apos;</span><br><span class="line">        else:</span><br><span class="line">            message = &apos;密码不一致&apos;</span><br><span class="line">        return render_template(&quot;message.html&quot;, title = title, message = message)</span><br></pre></td></tr></table></figure></p>
+<p>处理登陆逻辑：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@app.route(&apos;/login&apos;)</span><br><span class="line">def login():</span><br><span class="line">    title = &apos;登陆页面&apos;</span><br><span class="line">    if &apos;USERNAME&apos; in request.args:</span><br><span class="line">        username = request.args.get(&apos;USERNAME&apos;)</span><br><span class="line">        password = request.args.get(&apos;PASSWORD&apos;)</span><br><span class="line">        if username != &apos;&apos; and password != &apos;&apos;:</span><br><span class="line">            message = username + &apos; &apos; + password</span><br><span class="line">        else:</span><br><span class="line">            message = &apos;请输入用户名或密码&apos;</span><br><span class="line">        return render_template(&quot;message.html&quot;, title = title, message = message)</span><br><span class="line">    return render_template(&quot;login.html&quot;, title = title)</span><br></pre></td></tr></table></figure></p>
+<p>文件管理<br>分离run和view<br>run.py<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from views import app</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -181,7 +207,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
         		</li>
       		
 		</ul>
@@ -237,7 +263,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/12/25/article-title/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/03/flask入门/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -251,15 +277,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/01/05/下载某些APP中无法下载的视频/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          下载某些APP中无法下载的视频的方法
-        
-      </div>
-    </a>
   
+    <a href="/2019/08/16/Android开发记录-AndroidStudio模拟器相关/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android开发记录-AndroidStudio模拟器相关</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
