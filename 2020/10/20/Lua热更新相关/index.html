@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Lua HotFix相关 | JkleLin‘s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Lua HotFix简介热修复是指在不重启客户端的情况下能进行对代码逻辑的修改，同时不会影响到客户端的正常运行。 实现方法lua的热修复实现方法十分方便。原因是lua所有的数据存储都是用table实现的。基于这种实现方式可以很方便的修改其指向对象如：一个table的某个key指向一个函数1table = { key = Function1 }这时候只要对其进行修改table[key] = Func">
+  <meta name="description" content="Lua HotFix简介热修复是指在不重启客户端的情况下能进行对代码逻辑的修改，同时不会影响到客户端的正常运行。">
 <meta name="keywords" content="技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lua HotFix相关">
 <meta property="og:url" content="http://yoursite.com/2020/10/20/Lua热更新相关/index.html">
 <meta property="og:site_name" content="JkleLin‘s blog">
-<meta property="og:description" content="Lua HotFix简介热修复是指在不重启客户端的情况下能进行对代码逻辑的修改，同时不会影响到客户端的正常运行。 实现方法lua的热修复实现方法十分方便。原因是lua所有的数据存储都是用table实现的。基于这种实现方式可以很方便的修改其指向对象如：一个table的某个key指向一个函数1table = { key = Function1 }这时候只要对其进行修改table[key] = Func">
+<meta property="og:description" content="Lua HotFix简介热修复是指在不重启客户端的情况下能进行对代码逻辑的修改，同时不会影响到客户端的正常运行。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-10-20T05:20:39.068Z">
+<meta property="og:updated_time" content="2020-10-20T05:22:12.935Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lua HotFix相关">
-<meta name="twitter:description" content="Lua HotFix简介热修复是指在不重启客户端的情况下能进行对代码逻辑的修改，同时不会影响到客户端的正常运行。 实现方法lua的热修复实现方法十分方便。原因是lua所有的数据存储都是用table实现的。基于这种实现方式可以很方便的修改其指向对象如：一个table的某个key指向一个函数1table = { key = Function1 }这时候只要对其进行修改table[key] = Func">
+<meta name="twitter:description" content="Lua HotFix简介热修复是指在不重启客户端的情况下能进行对代码逻辑的修改，同时不会影响到客户端的正常运行。">
   
     <link rel="alternative" href="/atom.xml" title="JkleLin‘s blog" type="application/atom+xml">
   
@@ -167,7 +167,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Lua-HotFix"><a href="#Lua-HotFix" class="headerlink" title="Lua HotFix"></a>Lua HotFix</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>热修复是指在不重启客户端的情况下能进行对代码逻辑的修改，同时不会影响到客户端的正常运行。</p>
+        <h1 id="Lua-HotFix"><a href="#Lua-HotFix" class="headerlink" title="Lua HotFix"></a>Lua HotFix</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>热修复是指在不重启客户端的情况下能进行对代码逻辑的修改，同时不会影响到客户端的正常运行。<br><a id="more"></a></p>
 <h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><p>lua的热修复实现方法十分方便。原因是lua所有的数据存储都是用table实现的。<br>基于这种实现方式可以很方便的修改其指向对象<br>如：一个table的某个key指向一个函数1<br>table = { key = Function1 }<br>这时候只要对其进行修改<br>table[key] = Function2<br>就能让他指向函数2</p>
 <p>实现热修复就相当于让存在内存中的变量的值，指向新的值。</p>
 <h2 id="模块重载"><a href="#模块重载" class="headerlink" title="模块重载"></a>模块重载</h2><p>下面是最简单粗暴的基于模块的热更新的实现方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function hotfix(moduleName)  </span><br><span class="line">    package.loaded[moduleName] = nil  </span><br><span class="line">    require(moduleName)  </span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
