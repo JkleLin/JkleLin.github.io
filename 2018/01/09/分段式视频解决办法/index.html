@@ -172,7 +172,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="某些APP视频是分段的下载办法"><a href="#某些APP视频是分段的下载办法" class="headerlink" title="某些APP视频是分段的下载办法"></a>某些APP视频是分段的下载办法</h1><p>某些看片的APP中，由于视频体积过于庞大，所以对视频进行了分段，减少了加载时间。<br>如果不分段直接加载的话，将要先将视频全部下载完才能进行播放。</p>
-<h1 id="那么，这类的东西怎么下载呢？"><a href="#那么，这类的东西怎么下载呢？" class="headerlink" title="那么，这类的东西怎么下载呢？"></a>那么，这类的东西怎么下载呢？</h1><a id="more"></a>
+<h1 id="那么，这类的东西怎么下载呢？"><a href="#那么，这类的东西怎么下载呢？" class="headerlink" title="那么，这类的东西怎么下载呢？"></a>那么，这类的东西怎么下载呢？</h1><span id="more"></span>
 <h2 id="这里以百度网盘里的视频为例子（虽然它自己带了下载）"><a href="#这里以百度网盘里的视频为例子（虽然它自己带了下载）" class="headerlink" title="这里以百度网盘里的视频为例子（虽然它自己带了下载）"></a>这里以百度网盘里的视频为例子（虽然它自己带了下载）</h2><p>先进入APP不要播放视频<br><img src="/img/Download_way_2/video_ui.png" alt="视频界面"><br>打开抓包软件对APP进行抓包然后再播放视频，播放一会就可以了<br>停止抓包，在抓取的文件中找到下载内容有M3U的文件<br><img src="/img/Download_way_2/search_the_m3u8_doc.jpg" alt="m3u"><br>然后可以使用host+get从服务器下载m3u8文件或者用抓包工具带的保存功能存储m3u8文件。<br><img src="/img/Download_way_2/M3U.png" alt="m3u8文件"><br>可以看到m3u8文件中每个#EXTINF后面都带有一串地址</p>
 <blockquote>
 <p>#EXTINF:10,http://………………<br>这个10是这段视频的时长，这里可以看出这里的视频是以10s为一段的。<br>只要把后面的<br>http://………………<br>复制到浏览器或者迅雷下载下来就可以了。</p>

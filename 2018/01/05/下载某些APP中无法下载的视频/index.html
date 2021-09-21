@@ -176,7 +176,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="某些APP中有的视频没有下载地址，那么怎么下载该视频呢？"><a href="#某些APP中有的视频没有下载地址，那么怎么下载该视频呢？" class="headerlink" title="某些APP中有的视频没有下载地址，那么怎么下载该视频呢？"></a>某些APP中有的视频没有下载地址，那么怎么下载该视频呢？</h1><p>首先我们要准备一个APP的抓包工具</p>
-<p> 这里我是用的是Packet Capture<br><img src="/img/Download_way_1/pagcat.jpg" alt="Packet Capture"><br><a id="more"></a><br>先打开要下载的视频界面，但是不点进去播放。<br>这里用微博的小短片为例子<br><img src="/img/Download_way_1/1.png" alt="打开界面"></p>
+<p> 这里我是用的是Packet Capture<br><img src="/img/Download_way_1/pagcat.jpg" alt="Packet Capture"></p>
+<span id="more"></span>
+<p>先打开要下载的视频界面，但是不点进去播放。<br>这里用微博的小短片为例子<br><img src="/img/Download_way_1/1.png" alt="打开界面"></p>
 <p>然后使用抓包工具对这个APP进行抓包<br>抓包开始后点进视频开始播放<br><img src="/img/Download_way_1/2.png" alt="开始播放"></p>
 <p>视频开始播放后可以不管了<br>这个时候打开抓包工具<br><img src="/img/Download_way_1/3.png" alt="抓包工具抓取的包"><br>可以看到，抓到的东西有各种文件，SSL的不用管他，直接打开一个1MB左右的文件。<br><img src="/img/Download_way_1/4.png" alt="打开"><br>上面蓝色部分就是APP向服务器发送的请求，下面是从请求返回的内容。</p>
 <p>只看蓝色部分，把HOST和GET后面的内容（画起来的）给复制下来，组合在一起<br>如下</p>

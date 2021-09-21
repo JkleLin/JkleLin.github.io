@@ -169,10 +169,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="问题的出现"><a href="#问题的出现" class="headerlink" title="问题的出现"></a>问题的出现</h2><p>突然想做一个Android的app，于是开始学 Android studio （以下简称AS）的使用，来做一个app。<br><a id="more"></a><br>按照教程搭建好环境，写好第一个项目后，发现run它自带的Android模拟器总是运行不了。其中<code>Android ARM Nougat</code>会显示<code>Emulator: Warning: restoring GLES1 context from snapshot. App may need reloading.</code>错误。另一个<code>Android Accelerated Nougat</code>执行不了，因为没有开启VT-x。<br>我的笔记本是小米pro，cpu为i5 8th，不支持VT。（之后检测又支持了）<br>所以不能用任何靠VT支持的模拟器。而AS自带的<code>Android ARM Nougat</code>，运行失败是因为分配的内存不够，而要给它分配内存又需要开启VT。<br>那没办法，我只好去寻找不需要VT的外部模拟器。</p>
+        <h2 id="问题的出现"><a href="#问题的出现" class="headerlink" title="问题的出现"></a>问题的出现</h2><p>突然想做一个Android的app，于是开始学 Android studio （以下简称AS）的使用，来做一个app。 </p>
+<span id="more"></span> 
+<p>按照教程搭建好环境，写好第一个项目后，发现run它自带的Android模拟器总是运行不了。其中<code>Android ARM Nougat</code>会显示<code>Emulator: Warning: restoring GLES1 context from snapshot. App may need reloading.</code>错误。另一个<code>Android Accelerated Nougat</code>执行不了，因为没有开启VT-x。<br>我的笔记本是小米pro，cpu为i5 8th，不支持VT。（之后检测又支持了）<br>所以不能用任何靠VT支持的模拟器。而AS自带的<code>Android ARM Nougat</code>，运行失败是因为分配的内存不够，而要给它分配内存又需要开启VT。<br>那没办法，我只好去寻找不需要VT的外部模拟器。</p>
 <h2 id="蓝叠模拟器"><a href="#蓝叠模拟器" class="headerlink" title="蓝叠模拟器"></a>蓝叠模拟器</h2><p>在经历1个小时的寻找，发现<code>蓝叠模拟器</code>是比较流畅的不需要 VT 的模拟器。<br>BUT 问题又出现了，蓝叠模拟器运行时需要彻底关闭<code>hyper-V</code>，而我的电脑由于之前开发项目时用到了hyper虚拟机。之后在设置里关闭了，但是并不彻底，模拟器一直提示要我关闭。<br>最终关闭方案：</p>
 <blockquote>
-<p>链接：<a href="https://blog.csdn.net/hotcoffie/article/details/85043894" target="_blank" rel="noopener">https://blog.csdn.net/hotcoffie/article/details/85043894</a></p>
+<p>链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/hotcoffie/article/details/85043894">https://blog.csdn.net/hotcoffie/article/details/85043894</a></p>
 </blockquote>
 <h2 id="启用ADB"><a href="#启用ADB" class="headerlink" title="启用ADB"></a>启用ADB</h2><p>为了连接 AS 与 模拟器，需要启用ADB。ADB在<code>C:\Program Files (x86)\Android\android-sdk\platform-tools</code>目录下。把这个目录添加到系统变量path中就可以使用ADB命令了。<br>添加完后，重启AS，启动模拟器。在AS的<code>Terminal</code>中输入<code>adb connect localhost:5555</code>，这条命令可以让AS与蓝叠模拟器进行连接。然后run的时候选中蓝叠模拟器就可以运行了。</p>
 <h2 id="蓝叠允许ADB调试"><a href="#蓝叠允许ADB调试" class="headerlink" title="蓝叠允许ADB调试"></a>蓝叠允许ADB调试</h2><p>但是，在项目run的时候又提示<code>Installation failed with message closed</code>，说明APP在模拟器上安装失败，这是因为蓝叠模拟器默认关闭了ADB调试，进入蓝叠的设置，按照图片中进行操作就可以开启了。<br><img src="/img/bluestack/openADB.png" alt="开启ADB"></p>

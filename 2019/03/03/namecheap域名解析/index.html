@@ -172,8 +172,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="使用namecheap自带的域名解析绑定自己的服务器"><a href="#使用namecheap自带的域名解析绑定自己的服务器" class="headerlink" title="使用namecheap自带的域名解析绑定自己的服务器"></a>使用namecheap自带的域名解析绑定自己的服务器</h1><blockquote>
-<p>目前已有：<br>   namecheap域名<br>   云服务器<br><a id="more"></a></p>
+<p>目前已有：<br>   namecheap域名<br>   云服务器</p>
 </blockquote>
+<span id="more"></span>
+
 <h2 id="进入namecheap页面的domain-list进行设置"><a href="#进入namecheap页面的domain-list进行设置" class="headerlink" title="进入namecheap页面的domain list进行设置"></a>进入namecheap页面的domain list进行设置</h2><p><img src="/img/redirectDomain/step1.png" alt="设置"><br>如图按顺序点击设置然后进入advanced DNS界面</p>
 <h2 id="设置记录"><a href="#设置记录" class="headerlink" title="设置记录"></a>设置记录</h2><p>如图，添加两条记录<br><img src="/img/redirectDomain/step2.png" alt="域名解析"><br>A Record 是解析到服务器ip的，让访问域名时会重定向指向服务器ip<br>CNAME Record 是让域名可以使用”www”来访问</p>
 <h2 id="检查是否成功"><a href="#检查是否成功" class="headerlink" title="检查是否成功"></a>检查是否成功</h2><p>进入cmd界面，然后ping 自己的域名来检查是否绑定到正确的ip<br><img src="/img/redirectDomain/step3.png" alt="检查"><br>可以看到访问域名时正确地转跳到了服务器的ip<br>域名解析成功</p>
